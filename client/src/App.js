@@ -17,13 +17,11 @@ const App = () =>
     </Header>
     <Main>
       <Router>
-        <div>
-          <Switch>
-            <Route exact path='/' component={Search} />
-            <Route exact path='/search' component={Search} />
-            <Route path='/saved' component={Saved} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path='/' component={Search} />
+          <Route exact path='/search' component={Search} />
+          <Route path='/saved' component={Saved} />
+        </Switch>
       </Router>
     </Main>
     <Footer />

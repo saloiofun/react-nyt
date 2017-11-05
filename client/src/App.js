@@ -5,7 +5,7 @@ import Saved from './pages/Saved'
 import Container from './components/Grid'
 import Jumbotron from './components/Jumbotron'
 import Navbar from './components/Navbar'
-import Main from './pages/Main'
+import Main from './components/Main'
 
 const App = () =>
   <Container>

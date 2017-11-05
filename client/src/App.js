@@ -13,9 +13,9 @@ const App = () =>
   <Container>
     <Header>
       <Navbar />
+      <Jumbotron />
     </Header>
     <Main>
-      <Jumbotron />
       <Router>
         <div>
           <Switch>

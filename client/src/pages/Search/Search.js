@@ -6,6 +6,7 @@ import API from "../../utils/API";
 
 class Search extends React.Component {
   state = {
+    result: {},
     topic: '',
     startYear: '',
     endYear: ''
@@ -18,16 +19,16 @@ class Search extends React.Component {
     });
   };
 
+  searchTopic = ( topic, startYear, endYear ) => {
+    API.search( topic, startYear, endYear )
+    .then( res => this.setState({ result: res.data }))
+    .catch( err => console.log( err ))
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.topic && this.state.startYear && this.state.endYear) {
-      API.saveBook({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
-      })
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
+    if ( this.state.topic && this.state.startYear && this.state.endYear ) {
+      this.searchTopic( this.state.topic, this.state.startYear, this.state.endYear )
     }
   };
 
@@ -36,10 +37,27 @@ class Search extends React.Component {
       <Card>
         <CardHeader header='Query' />
         <CardBody>
-          <Topic />
-          <StartYear />
-          <EndYear />
-          <SubmitBtn>Submit</SubmitBtn>
+          <Topic 
+            value={this.state.topic}
+            onChange={this.handleInputChange}
+            name="topic"
+            required
+          />
+          <StartYear 
+            value={this.state.startYear}
+            onChange={this.handleInputChange}
+            name="startYear"
+            required
+          />
+          <EndYear 
+            value={this.state.endYear}
+            onChange={this.handleInputChange}
+            name="endYear"
+            required
+          />
+          <SubmitBtn
+            onClick={this.handleFormSubmit}
+          >Submit</SubmitBtn>
         </CardBody>
       </Card>
     )

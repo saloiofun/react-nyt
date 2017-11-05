@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardHeader, CardBody } from '../../components/Card'
 import { FormGroup } from '../../components/Form'
-import { Button, Link } from '../../components/Buttons'
+import { Button, Anchor } from '../../components/Buttons'
 import { List, ListItem } from '../../components/List'
 import API from "../../utils/API";
 
@@ -11,7 +11,7 @@ class Search extends React.Component {
     result: {},
     topic: '',
     startYear: '',
-    endYear: ''
+    endYear: '',
   }
 
   handleInputChange = event => {
@@ -21,8 +21,14 @@ class Search extends React.Component {
     });
   };
 
-  // .then( res => this.setState({ result: res.data })
-  // console.log(res.data))
+  saveArticle = (event, data) => {
+    event.preventDefault()
+    API.saveArticle({
+      title: data.headline.main,
+      date: data.pub_date,
+      url: data.web_url    
+    })
+  }
 
   searchTopic = ( topic, startYear, endYear ) => {
     API.search( topic, startYear, endYear )
@@ -31,7 +37,7 @@ class Search extends React.Component {
   }
 
   handleFormSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
     if ( this.state.topic && this.state.startYear && this.state.endYear ) {
       this.searchTopic( this.state.topic, this.state.startYear, this.state.endYear )
     }
@@ -87,21 +93,21 @@ class Search extends React.Component {
             <CardHeader header='Results' />
             <CardBody>
             <List>
-              {this.state.result.map(article => (
-                <ListItem>
-                  <h4 class="mb-1">{article.headline.main}</h4>
-                  <p class="mb-1">Date Published: {article.pub_date}</p>
+              {this.state.result.map((article, i) => (
+                <ListItem key={i}>
+                  <h4 className="mb-1">{article.headline.main}</h4>
+                  <p className="mb-1">Date Published: {article.pub_date}</p>
                   <div className="text-right">
-                    <Link
+                    <Anchor
                       href={article.web_url}
                       target='_blank'
                       className='btn btn-primary mr-1'              
                     >View Article
-                    </Link>
+                    </Anchor>
                     <Button
-                      onClick={this.handleFormSubmit}
                       type='button'
-                      className='btn btn-success'              
+                      className='btn btn-success'  
+                      onClick={(e) => this.saveArticle(e, article)}            
                     >Save
                     </Button>
                   </div>

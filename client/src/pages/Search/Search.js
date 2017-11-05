@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardHeader, CardBody } from '../../components/Card'
-import { Topic, StartYear, EndYear } from '../../components/Form'
-import { SubmitBtn } from '../../components/Buttons'
+import { FormGroup } from '../../components/Form'
+import { Button } from '../../components/Buttons'
 import API from "../../utils/API";
 
 class Search extends React.Component {
@@ -37,27 +37,43 @@ class Search extends React.Component {
       <Card>
         <CardHeader header='Query' />
         <CardBody>
-          <Topic 
-            value={this.state.topic}
-            onChange={this.handleInputChange}
-            name="topic"
-            required
-          />
-          <StartYear 
-            value={this.state.startYear}
-            onChange={this.handleInputChange}
-            name="startYear"
-            required
-          />
-          <EndYear 
-            value={this.state.endYear}
-            onChange={this.handleInputChange}
-            name="endYear"
-            required
-          />
-          <SubmitBtn
-            onClick={this.handleFormSubmit}
-          >Submit</SubmitBtn>
+          <form>
+            <FormGroup 
+              header='Topic'
+              type='text'
+              label='topic'
+              value={this.state.topic}
+              onChange={this.handleInputChange}
+              name='topic'
+              required
+            />
+            <FormGroup 
+              header='Start Year'
+              type='number'
+              label='startYear'
+              min='0'
+              value={this.state.startYear}
+              onChange={this.handleInputChange}
+              name='startYear'
+              required
+            />
+            <FormGroup 
+              header='End Year'
+              type='number'
+              label='endYear'
+              min='0'
+              value={this.state.endYear}
+              onChange={this.handleInputChange}
+              name='endYear'
+              required
+            />
+            <Button
+              onClick={this.handleFormSubmit}
+              type='submit'
+              className='btn btn-info float-right btn-lg text-white'              
+            >Submit
+            </Button>
+          </form>
         </CardBody>
       </Card>
     )

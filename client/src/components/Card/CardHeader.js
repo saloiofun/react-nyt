@@ -1,6 +1,6 @@
 import React from 'react'
 
 export const CardHeader = ({ header }) =>
-  <div className='card-header'>
+  <h4 className='card-header bg-dark text-white'>
     { header }
-  </div>
+  </h4>

@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Header = props => <Header {...props} />
+const Header = ({ children }) => <header className='mb-3'>{children}</header>
 
 export default Header

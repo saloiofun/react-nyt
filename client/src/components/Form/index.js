@@ -1,3 +1,3 @@
-export * from './TopicInput'
-export * from './StartYearInput'
-export * from './EndYearInput'
+export * from './Topic'
+export * from './StartYear'
+export * from './EndYear'

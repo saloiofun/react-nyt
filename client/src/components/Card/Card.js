@@ -1,6 +1,3 @@
 import React from 'react'
 
-export const Card = ({ children }) =>
-  <div className='card'>
-    {children}
-  </div>
+export const Card = props => <div className='card' {...props} />

@@ -1,3 +1,3 @@
 export * from './SaveBtn'
-export * from './TextArea'
-export * from './FormBtn'
+export * from './SubmitBtn'
+export * from './ViewArticleBtn'

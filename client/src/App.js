@@ -5,13 +5,17 @@ import Saved from './pages/Saved'
 import Container from './components/Grid'
 import Jumbotron from './components/Jumbotron'
 import Navbar from './components/Navbar'
+import Header from './components/Header'
 import Main from './components/Main'
+import Footer from './components/Footer'
 
 const App = () =>
   <Container>
-    <Navbar />
-    <Jumbotron />
+    <Header>
+      <Navbar />
+    </Header>
     <Main>
+      <Jumbotron />
       <Router>
         <div>
           <Switch>
@@ -22,7 +26,7 @@ const App = () =>
         </div>
       </Router>
     </Main>
-
+    <Footer />
   </Container>
 
 export default App

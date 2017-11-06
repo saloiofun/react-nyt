@@ -11,7 +11,7 @@ class Search extends React.Component {
     result: {},
     topic: '',
     startYear: '',
-    endYear: '',
+    endYear: ''  
   }
 
   handleInputChange = event => {

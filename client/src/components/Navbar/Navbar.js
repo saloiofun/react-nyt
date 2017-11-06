@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const Navbar = () =>
   <nav className='navbar navbar-expand-lg navbar-dark bg-dark rounded mb-4'>

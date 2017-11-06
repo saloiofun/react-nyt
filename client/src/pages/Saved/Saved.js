@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card, CardHeader, CardBody } from '../../components/Card'
-import { FormGroup } from '../../components/Form'
-import { Button, Anchor } from '../../components/Buttons'
+import { Anchor } from '../../components/Buttons'
 import { List, ListItem } from '../../components/List'
 import API from '../../utils/API'
 
@@ -58,10 +57,3 @@ class Saved extends React.Component {
 }
 
 export default Saved
-
-// const Saved = () =>
-//   <div>
-//         Hello World - Saved
-//  </div>
-
-// export default Saved

@@ -1,4 +1,4 @@
 module.exports = {
-    Save: require("./save")
+    Saved: require("./saveArticle")
   };
   

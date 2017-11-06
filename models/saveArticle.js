@@ -20,6 +20,6 @@ const SaveSchema = new Schema({
   }
 })
 
-var Save = mongoose.model('Save', SaveSchema)
+var Saved = mongoose.model('Saved', SaveSchema)
 
-module.exports = Save
+module.exports = Saved

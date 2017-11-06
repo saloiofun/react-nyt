@@ -10,21 +10,23 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 
 const App = () =>
-  <Container>
-    <Header>
-      <Navbar />
-      <Jumbotron />
-    </Header>
-    <Main>
-      <Router>
-        <Switch>
-          <Route exact path='/' component={Search} />
-          <Route exact path='/search' component={Search} />
-          <Route path='/saved' component={Saved} />
-        </Switch>
-      </Router>
-    </Main>
-    <Footer />
-  </Container>
+  <Router>
+    <div>
+      <Container>
+        <Header>
+          <Navbar />
+        </Header>
+        <Main >
+          <Jumbotron />
+          <Switch>
+            <Route exact path='/' component={Search} />
+            <Route exact path='/search' component={Search} />
+            <Route path='/saved' component={Saved} />
+          </Switch>
+        </Main>
+        <Footer />
+      </Container>
+    </div>
+  </Router>
 
 export default App

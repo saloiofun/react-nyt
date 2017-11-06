@@ -9,7 +9,7 @@ const Navbar = () =>
     <div className='collapse navbar-collapse' id='navbarNav'>
       <div className='navbar-nav ml-auto'>
         <a className='nav-item nav-link active' href='/search'>Search</a>
-        <a className='nav-item nav-link' href='/saved'>Saved</a>
+        <a className='nav-item nav-link' href='/saved'>Saved Articles</a>
       </div>
     </div>
   </nav>

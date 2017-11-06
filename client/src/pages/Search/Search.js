@@ -5,7 +5,6 @@ import { Button, Anchor } from '../../components/Buttons'
 import { List, ListItem } from '../../components/List'
 import API from "../../utils/API";
 
-
 class Search extends React.Component {
   state = {
     result: {},
@@ -25,7 +24,7 @@ class Search extends React.Component {
     event.preventDefault()
     API.saveArticle({
       title: data.headline.main,
-      date: data.pub_date,
+      datePub: data.pub_date,
       url: data.web_url    
     })
   }

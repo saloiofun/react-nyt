@@ -6,9 +6,13 @@ const SaveSchema = new Schema({
     type: String,
     required: true
   },
-  date: {
+  datePub: {
     type: Date,
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   },
   url: {
     type: String,

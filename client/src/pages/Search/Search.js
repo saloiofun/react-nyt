@@ -3,21 +3,21 @@ import { Card, CardHeader, CardBody } from '../../components/Card'
 import { FormGroup } from '../../components/Form'
 import { Button, Anchor } from '../../components/Buttons'
 import { List, ListItem } from '../../components/List'
-import API from "../../utils/API";
+import API from '../../utils/API'
 
 class Search extends React.Component {
   state = {
     result: {},
     topic: '',
     startYear: '',
-    endYear: ''  
+    endYear: ''
   }
 
   handleInputChange = event => {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     this.setState({
       [name]: value
-    });
+    })
   };
 
   saveArticle = (event, data) => {
@@ -25,20 +25,20 @@ class Search extends React.Component {
     API.saveArticle({
       title: data.headline.main,
       datePub: data.pub_date,
-      url: data.web_url    
+      url: data.web_url
     })
   }
 
-  searchTopic = ( topic, startYear, endYear ) => {
-    API.search( topic, startYear, endYear )
-    .then( res => this.setState({ result: res.data.response.docs }))
-    .catch( err => console.log( err ))
+  searchTopic = (topic, startYear, endYear) => {
+    API.search(topic, startYear, endYear)
+    .then(res => this.setState({ result: res.data.response.docs }))
+    .catch(err => console.log(err))
   }
 
   handleFormSubmit = event => {
     event.preventDefault()
-    if ( this.state.topic && this.state.startYear && this.state.endYear ) {
-      this.searchTopic( this.state.topic, this.state.startYear, this.state.endYear )
+    if (this.state.topic && this.state.startYear && this.state.endYear) {
+      this.searchTopic(this.state.topic, this.state.startYear, this.state.endYear)
     }
   };
 
@@ -49,7 +49,7 @@ class Search extends React.Component {
           <CardHeader header='Query' />
           <CardBody>
             <form>
-              <FormGroup 
+              <FormGroup
                 header='Topic'
                 type='text'
                 label='topic'
@@ -58,7 +58,7 @@ class Search extends React.Component {
                 name='topic'
                 required
               />
-              <FormGroup 
+              <FormGroup
                 header='Start Year'
                 type='number'
                 label='startYear'
@@ -68,7 +68,7 @@ class Search extends React.Component {
                 name='startYear'
                 required
               />
-              <FormGroup 
+              <FormGroup
                 header='End Year'
                 type='number'
                 label='endYear'
@@ -81,7 +81,7 @@ class Search extends React.Component {
               <Button
                 onClick={this.handleFormSubmit}
                 type='submit'
-                className='btn btn-info float-right btn-lg text-white'              
+                className='btn btn-info float-right btn-lg text-white'
               >Submit
               </Button>
             </form>
@@ -91,30 +91,30 @@ class Search extends React.Component {
           <Card>
             <CardHeader header='Results' />
             <CardBody>
-            <List>
-              {this.state.result.map((article, i) => (
-                <ListItem key={i}>
-                  <h4 className="mb-1">{article.headline.main}</h4>
-                  <p className="mb-1">Date Published: {article.pub_date}</p>
-                  <div className="text-right">
-                    <Anchor
-                      href={article.web_url}
-                      target='_blank'
-                      className='btn btn-primary mr-1'              
+              <List>
+                {this.state.result.map((article, i) => (
+                  <ListItem key={i}>
+                    <h4 className='mb-1'>{article.headline.main}</h4>
+                    <p className='mb-1'>Date Published: {article.pub_date}</p>
+                    <div className='text-right'>
+                      <Anchor
+                        href={article.web_url}
+                        target='_blank'
+                        className='btn btn-primary mr-1'
                     >View Article
                     </Anchor>
-                    <Button
-                      type='button'
-                      className='btn btn-success'  
-                      onClick={(e) => this.saveArticle(e, article)}            
+                      <Button
+                        type='button'
+                        className='btn btn-success'
+                        onClick={(e) => this.saveArticle(e, article)}
                     >Save
                     </Button>
-                  </div>
-              </ListItem>
+                    </div>
+                  </ListItem>
               ))}
-            </List>
+              </List>
             </CardBody>
-          </Card>          
+          </Card>
         ) : (
           <List>
             <ListItem>

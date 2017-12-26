@@ -25,24 +25,24 @@ class Saved extends React.Component {
           <Card>
             <CardHeader header='Saved Articles' />
             <CardBody>
-            <List>
-              {this.state.saves.map((article, i) => (
-                <ListItem key={i}>
-                  <h4 className="mb-1">{article.title}</h4>
-                  <p className="mb-1">Date Published: {article.date}</p>
-                  <div className="text-right">
-                    <Anchor
-                      href={article.url}
-                      target='_blank'
-                      className='btn btn-primary mr-1'              
+              <List>
+                {this.state.saves.map((article, i) => (
+                  <ListItem key={i}>
+                    <h4 className='mb-1'>{article.title}</h4>
+                    <p className='mb-1'>Date Published: {article.date}</p>
+                    <div className='text-right'>
+                      <Anchor
+                        href={article.url}
+                        target='_blank'
+                        className='btn btn-primary mr-1'
                     >View Article
                     </Anchor>
-                  </div>
-              </ListItem>
+                    </div>
+                  </ListItem>
               ))}
-            </List>
+              </List>
             </CardBody>
-          </Card>          
+          </Card>
         ) : (
           <List>
             <ListItem>
@@ -53,7 +53,6 @@ class Saved extends React.Component {
       </div>
     )
   }
-  
 }
 
 export default Saved
